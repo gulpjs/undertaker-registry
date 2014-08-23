@@ -1,0 +1,28 @@
+{
+  "name": "undertaker-registry",
+  "version": "0.0.0",
+  "description": "undertaker-registry ===================",
+  "main": "index.js",
+  "scripts": {
+    "test": "lab -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phated/undertaker-registry"
+  },
+  "keywords": [
+    "registry",
+    "tasks",
+    "undertaker",
+    "gulp"
+  ],
+  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phated/undertaker-registry/issues"
+  },
+  "homepage": "https://github.com/phated/undertaker-registry",
+  "devDependencies": {
+    "lab": "^4.1.0"
+  }
+}
