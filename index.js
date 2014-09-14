@@ -13,7 +13,12 @@ DefaultRegistry.prototype.set = function set(name, fn){
 };
 
 DefaultRegistry.prototype.tasks = function tasks(){
-  return Object.keys(this._tasks).map(this.get, this);
+  var self = this;
+
+  return Object.keys(this._tasks).reduce(function(tasks, name){
+    tasks[name] = self.get(name);
+    return tasks;
+  }, {});
 };
 
 module.exports = DefaultRegistry;
