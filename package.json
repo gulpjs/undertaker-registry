@@ -4,7 +4,7 @@
   "description": "undertaker-registry ===================",
   "main": "index.js",
   "scripts": {
-    "test": "lab -c"
+    "test": "lab -cv"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/phated/undertaker-registry",
   "devDependencies": {
-    "lab": "^4.1.0"
+    "code": "^1.2.1",
+    "lab": "^5.2.0"
   }
 }
