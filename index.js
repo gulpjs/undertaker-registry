@@ -1,6 +1,10 @@
 'use strict';
 
 function DefaultRegistry(){
+  if(this instanceof DefaultRegistry === false){
+    return new DefaultRegistry();
+  }
+
   this._tasks = {};
 }
 
