@@ -8,6 +8,8 @@ function DefaultRegistry(){
   this._tasks = {};
 }
 
+DefaultRegistry.prototype.init = function init(taker){};
+
 DefaultRegistry.prototype.get = function get(name){
   return this._tasks[name];
 };

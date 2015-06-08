@@ -31,6 +31,15 @@ describe('undertaker-registry', function(){
     });
   });
 
+  describe('init', function(){
+
+    it('is a noop', function(done){
+      var reg = new Registry();
+      expect(reg.init).to.be.a.function();
+      done();
+    });
+  });
+
   describe('get', function(){
 
     it('returns a task from the registry', function(done){
