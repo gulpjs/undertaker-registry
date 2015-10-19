@@ -24,6 +24,6 @@
   "homepage": "https://github.com/phated/undertaker-registry",
   "devDependencies": {
     "code": "^1.2.1",
-    "lab": "^5.2.0"
+    "lab": "^6.2.0"
   }
 }
