@@ -8,13 +8,13 @@ var it = lab.it;
 
 var Registry = require('../');
 
-function noop(){}
+function noop() {}
 
-describe('undertaker-registry', function(){
+describe('undertaker-registry', function() {
 
-  describe('constructor', function(){
+  describe('constructor', function() {
 
-    it('can be constructed with new', function(done){
+    it('can be constructed with new', function(done) {
       var reg = new Registry();
       expect(reg.get).to.be.a.function();
       expect(reg.set).to.be.a.function();
@@ -22,7 +22,7 @@ describe('undertaker-registry', function(){
       done();
     });
 
-    it('can be constructed without new', function(done){
+    it('can be constructed without new', function(done) {
       var reg = Registry();
       expect(reg.get).to.be.a.function();
       expect(reg.set).to.be.a.function();
@@ -31,18 +31,18 @@ describe('undertaker-registry', function(){
     });
   });
 
-  describe('init', function(){
+  describe('init', function() {
 
-    it('is a noop', function(done){
+    it('is a noop', function(done) {
       var reg = new Registry();
       expect(reg.init).to.be.a.function();
       done();
     });
   });
 
-  describe('get', function(){
+  describe('get', function() {
 
-    it('returns a task from the registry', function(done){
+    it('returns a task from the registry', function(done) {
       var reg = new Registry();
       reg._tasks.test = noop;
       expect(reg.get('test')).to.equal(noop);
@@ -50,9 +50,9 @@ describe('undertaker-registry', function(){
     });
   });
 
-  describe('set', function(){
+  describe('set', function() {
 
-    it('registers a task', function(done){
+    it('registers a task', function(done) {
       var reg = new Registry();
       reg.set('test', noop);
       expect(reg._tasks.test).to.equal(noop);
@@ -60,9 +60,9 @@ describe('undertaker-registry', function(){
     });
   });
 
-  describe('tasks', function(){
+  describe('tasks', function() {
 
-    it('returns an object of task name->functions', function(done){
+    it('returns an object of task name->functions', function(done) {
       var reg = new Registry();
       reg.set('test1', noop);
       reg.set('test2', noop);
