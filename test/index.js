@@ -58,6 +58,13 @@ describe('undertaker-registry', function() {
       expect(reg._tasks.test).to.equal(noop);
       done();
     });
+
+    it('returns the task (useful for inheriting)', function(done) {
+      var reg = new Registry();
+      var task = reg.set('test', noop);
+      expect(task).to.equal(noop);
+      done();
+    });
   });
 
   describe('tasks', function() {

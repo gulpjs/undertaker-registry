@@ -15,7 +15,7 @@ DefaultRegistry.prototype.get = function get(name) {
 };
 
 DefaultRegistry.prototype.set = function set(name, fn) {
-  this._tasks[name] = fn;
+  return this._tasks[name] = fn;
 };
 
 DefaultRegistry.prototype.tasks = function tasks() {
