@@ -1,6 +1,6 @@
 {
   "name": "undertaker-registry",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "undertaker-registry ===================",
   "main": "index.js",
   "scripts": {
