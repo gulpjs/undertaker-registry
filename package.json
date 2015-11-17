@@ -2,7 +2,7 @@
   "name": "undertaker-registry",
   "version": "1.0.0",
   "description": "Default registry in gulp 4",
-  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com/)",
+  "author": "Gulp Team <team@gulpjs.com> (http://gulpjs.com/)",
   "contributors": [],
   "repository": "gulpjs/undertaker-registry",
   "license": "MIT",
