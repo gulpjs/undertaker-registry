@@ -1,10 +1,6 @@
 'use strict';
 
-var lab = exports.lab = require('lab').script();
-var expect = require('code').expect;
-
-var describe = lab.describe;
-var it = lab.it;
+var expect = require('expect');
 
 var Registry = require('../');
 
@@ -16,17 +12,17 @@ describe('undertaker-registry', function() {
 
     it('can be constructed with new', function(done) {
       var reg = new Registry();
-      expect(reg.get).to.be.a.function();
-      expect(reg.set).to.be.a.function();
-      expect(reg.tasks).to.be.a.function();
+      expect(reg.get).toBeA('function');
+      expect(reg.set).toBeA('function');
+      expect(reg.tasks).toBeA('function');
       done();
     });
 
     it('can be constructed without new', function(done) {
       var reg = Registry();
-      expect(reg.get).to.be.a.function();
-      expect(reg.set).to.be.a.function();
-      expect(reg.tasks).to.be.a.function();
+      expect(reg.get).toBeA('function');
+      expect(reg.set).toBeA('function');
+      expect(reg.tasks).toBeA('function');
       done();
     });
   });
@@ -35,7 +31,7 @@ describe('undertaker-registry', function() {
 
     it('is a noop', function(done) {
       var reg = new Registry();
-      expect(reg.init).to.be.a.function();
+      expect(reg.init).toBeA('function');
       done();
     });
   });
@@ -45,7 +41,7 @@ describe('undertaker-registry', function() {
     it('returns a task from the registry', function(done) {
       var reg = new Registry();
       reg._tasks.test = noop;
-      expect(reg.get('test')).to.equal(noop);
+      expect(reg.get('test')).toEqual(noop);
       done();
     });
   });
@@ -55,14 +51,14 @@ describe('undertaker-registry', function() {
     it('registers a task', function(done) {
       var reg = new Registry();
       reg.set('test', noop);
-      expect(reg._tasks.test).to.equal(noop);
+      expect(reg._tasks.test).toEqual(noop);
       done();
     });
 
     it('returns the task (useful for inheriting)', function(done) {
       var reg = new Registry();
       var task = reg.set('test', noop);
-      expect(task).to.equal(noop);
+      expect(task).toEqual(noop);
       done();
     });
   });
@@ -73,7 +69,7 @@ describe('undertaker-registry', function() {
       var reg = new Registry();
       reg.set('test1', noop);
       reg.set('test2', noop);
-      expect(reg.tasks()).to.deep.equal({ test1: noop, test2: noop });
+      expect(reg.tasks()).toEqual({ test1: noop, test2: noop });
       done();
     });
   });
