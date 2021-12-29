@@ -12,17 +12,18 @@ describe('undertaker-registry', function() {
 
     it('can be constructed with new', function(done) {
       var reg = new Registry();
-      expect(reg.get).toBeA('function');
-      expect(reg.set).toBeA('function');
-      expect(reg.tasks).toBeA('function');
+      expect(typeof reg.get).toEqual('function');
+      expect(typeof reg.set).toEqual('function');
+      expect(typeof reg.tasks).toEqual('function');
       done();
     });
 
     it('can be constructed without new', function(done) {
+      /* eslint new-cap: 0 */
       var reg = Registry();
-      expect(reg.get).toBeA('function');
-      expect(reg.set).toBeA('function');
-      expect(reg.tasks).toBeA('function');
+      expect(typeof reg.get).toEqual('function');
+      expect(typeof reg.set).toEqual('function');
+      expect(typeof reg.tasks).toEqual('function');
       done();
     });
   });
@@ -31,7 +32,7 @@ describe('undertaker-registry', function() {
 
     it('is a noop', function(done) {
       var reg = new Registry();
-      expect(reg.init).toBeA('function');
+      expect(typeof reg.init).toEqual('function');
       done();
     });
   });

@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="http://gulpjs.com">
+  <a href="https://gulpjs.com">
     <img height="257" width="114" src="https://raw.githubusercontent.com/gulpjs/artwork/master/gulp-2x.png">
   </a>
 </p>
 
 # undertaker-registry
 
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![AppVeyor Build Status][appveyor-image]][appveyor-url] [![Coveralls Status][coveralls-image]][coveralls-url] [![Gitter chat][gitter-image]][gitter-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][ci-image]][ci-url] [![Coveralls Status][coveralls-image]][coveralls-url]
 
 Default registry in gulp 4.
 
@@ -193,18 +193,15 @@ taker.task('default', taker.series('clean', 'build', 'serve', function(cb) {
 
 MIT
 
-[downloads-image]: http://img.shields.io/npm/dm/undertaker-registry.svg
+
+<!-- prettier-ignore-start -->
+[downloads-image]: https://img.shields.io/npm/dm/undertaker-registry.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/undertaker-registry
-[npm-image]: http://img.shields.io/npm/v/undertaker-registry.svg
+[npm-image]: https://img.shields.io/npm/v/undertaker-registry.svg?style=flat-square
 
-[travis-url]: https://travis-ci.org/gulpjs/undertaker-registry
-[travis-image]: http://img.shields.io/travis/gulpjs/undertaker-registry.svg
-
-[appveyor-url]: https://ci.appveyor.com/project/gulpjs/undertaker-registry
-[appveyor-image]: https://img.shields.io/appveyor/ci/gulpjs/undertaker-registry.svg?label=appveyor
+[ci-url]: https://github.com/gulpjs/undertaker-registry/actions?query=workflow:dev
+[ci-image]: https://img.shields.io/github/workflow/status/gulpjs/undertaker-registry/dev?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/undertaker-registry
-[coveralls-image]: http://img.shields.io/coveralls/gulpjs/undertaker-registry/master.svg
-
-[gitter-url]: https://gitter.im/gulpjs/gulp
-[gitter-image]: https://badges.gitter.im/gulpjs/gulp.svg
+[coveralls-image]: https://img.shields.io/coveralls/gulpjs/undertaker-registry/master.svg?style=flat-square
+<!-- prettier-ignore-end -->
