@@ -210,7 +210,7 @@ MIT
 [npm-image]: https://img.shields.io/npm/v/undertaker-registry.svg?style=flat-square
 
 [ci-url]: https://github.com/gulpjs/undertaker-registry/actions?query=workflow:dev
-[ci-image]: https://img.shields.io/github/workflow/status/gulpjs/undertaker-registry/dev?style=flat-square
+[ci-image]: https://img.shields.io/github/actions/workflow/status/gulpjs/undertaker-registry/dev.yml?branch=master&style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/undertaker-registry
 [coveralls-image]: https://img.shields.io/coveralls/gulpjs/undertaker-registry/master.svg?style=flat-square
