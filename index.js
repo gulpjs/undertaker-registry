@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 function DefaultRegistry() {
   if (this instanceof DefaultRegistry === false) {
