@@ -1,6 +1,6 @@
 {
   "name": "undertaker-registry",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Default registry in gulp 4.",
   "author": "Gulp Team <team@gulpjs.com> (http://gulpjs.com/)",
   "contributors": [
