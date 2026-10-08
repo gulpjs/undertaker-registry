@@ -13,8 +13,8 @@ Default registry in gulp 4.
 ## Usage
 
 ```js
-var gulp = require('gulp');
-var UndertakerRegistry = require('undertaker-registry');
+var gulp = require("gulp");
+var UndertakerRegistry = require("undertaker-registry");
 
 var registry = new UndertakerRegistry();
 
@@ -71,9 +71,9 @@ The easiest way to create a custom registry is to inherit from
 [undertaker-registry](https://www.npmjs.com/package/undertaker-registry):
 
 ```javascript
-var util = require('util');
+var util = require("util");
 
-var DefaultRegistry = require('undertaker-registry');
+var DefaultRegistry = require("undertaker-registry");
 
 function MyRegistry() {
   DefaultRegistry.call(this);
@@ -93,18 +93,18 @@ prototype and it will receive the Undertaker instance as the only argument. You 
 For example you might want to share a `clean` task:
 
 ```javascript
-var fs = require('fs');
-var util = require('util');
+var fs = require("fs");
+var util = require("util");
 
-var DefaultRegistry = require('undertaker-registry');
-var del = require('del');
+var DefaultRegistry = require("undertaker-registry");
+var del = require("del");
 
 function CommonRegistry(opts) {
   DefaultRegistry.call(this);
 
   opts = opts || {};
 
-  this.buildDir = opts.buildDir || './build';
+  this.buildDir = opts.buildDir || "./build";
 }
 
 util.inherits(CommonRegistry, DefaultRegistry);
@@ -115,11 +115,11 @@ CommonRegistry.prototype.init = function (takerInst) {
 
   if (exists) {
     throw new Error(
-      'Cannot initialize common tasks. ' + buildDir + ' directory exists.'
+      "Cannot initialize common tasks. " + buildDir + " directory exists.",
     );
   }
 
-  takerInst.task('clean', function () {
+  takerInst.task("clean", function () {
     return del([buildDir]);
   });
 };
@@ -130,17 +130,17 @@ module.exports = CommonRegistry;
 Then to use it in a project:
 
 ```javascript
-var Undertaker = require('undertaker');
-var CommonRegistry = require('myorg-common-tasks');
+var Undertaker = require("undertaker");
+var CommonRegistry = require("myorg-common-tasks");
 
-var taker = new Undertaker(CommonRegistry({ buildDir: '/dist' }));
+var taker = new Undertaker(CommonRegistry({ buildDir: "/dist" }));
 
 taker.task(
-  'build',
-  taker.series('clean', function build(cb) {
+  "build",
+  taker.series("clean", function build(cb) {
     // do things
     cb();
-  })
+  }),
 );
 ```
 
@@ -153,14 +153,14 @@ to bind them to that data. Be sure to return the altered task, as per the descri
 of registry methods above:
 
 ```javascript
-var util = require('util');
+var util = require("util");
 
-var Undertaker = require('undertaker');
-var DefaultRegistry = require('undertaker-registry');
+var Undertaker = require("undertaker");
+var DefaultRegistry = require("undertaker-registry");
 
 // Some task defined somewhere else
-var BuildRegistry = require('./build.js');
-var ServeRegistry = require('./serve.js');
+var BuildRegistry = require("./build.js");
+var ServeRegistry = require("./serve.js");
 
 function ConfigRegistry(config) {
   DefaultRegistry.call(this);
@@ -184,21 +184,31 @@ taker.registry(new ServeRegistry());
 // `ConfigRegistry.prototype.set` which will bind them to the config object.
 taker.registry(
   new ConfigRegistry({
-    src: './src',
-    build: './build',
-    bindTo: '0.0.0.0:8888',
-  })
+    src: "./src",
+    build: "./build",
+    bindTo: "0.0.0.0:8888",
+  }),
 );
 
 taker.task(
-  'default',
-  taker.series('clean', 'build', 'serve', function (cb) {
-    console.log('Server bind to ' + this.bindTo);
-    console.log('Serving' + this.build);
+  "default",
+  taker.series("clean", "build", "serve", function (cb) {
+    console.log("Server bind to " + this.bindTo);
+    console.log("Serving" + this.build);
     cb();
-  })
+  }),
 );
 ```
+
+## Strict No LLM / No AI Policy
+
+No LLMs for issues.
+
+No LLMs for patches / pull requests.
+
+No LLMs for comments on the bug tracker, including translation.
+
+English is encouraged, but not required. You are welcome to post in your native language and rely on others to have their own translation tools of choice to interpret your words.
 
 ## License
 
@@ -209,9 +219,9 @@ MIT
 [npm-url]: https://npmjs.org/package/undertaker-registry
 [npm-image]: https://img.shields.io/npm/v/undertaker-registry.svg?style=flat-square
 
-[ci-url]: https://github.com/gulpjs/undertaker-registry/actions?query=workflow:dev
-[ci-image]: https://img.shields.io/github/actions/workflow/status/gulpjs/undertaker-registry/dev.yml?branch=master&style=flat-square
+[ci-url]: https://github.com/gulpjs/undertaker-registry/actions/workflows/dev.yml
+[ci-image]: https://img.shields.io/github/actions/workflow/status/gulpjs/undertaker-registry/dev.yml?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/gulpjs/undertaker-registry
-[coveralls-image]: https://img.shields.io/coveralls/gulpjs/undertaker-registry/master.svg?style=flat-square
+[coveralls-image]: https://img.shields.io/coveralls/gulpjs/undertaker-registry/main.svg?style=flat-square
 <!-- prettier-ignore-end -->
