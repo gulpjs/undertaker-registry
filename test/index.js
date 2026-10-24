@@ -1,6 +1,7 @@
 "use strict";
 
-var expect = require("expect");
+var assert = require("node:assert");
+var { describe, it } = require("node:test");
 
 var Registry = require("../");
 
@@ -8,64 +9,57 @@ function noop() {}
 
 describe("undertaker-registry", function () {
   describe("constructor", function () {
-    it("can be constructed with new", function (done) {
+    it("can be constructed with new", function () {
       var reg = new Registry();
-      expect(typeof reg.get).toEqual("function");
-      expect(typeof reg.set).toEqual("function");
-      expect(typeof reg.tasks).toEqual("function");
-      done();
+      assert.deepStrictEqual(typeof reg.get, "function");
+      assert.deepStrictEqual(typeof reg.set, "function");
+      assert.deepStrictEqual(typeof reg.tasks, "function");
     });
 
-    it("can be constructed without new", function (done) {
+    it("can be constructed without new", function () {
       /* eslint new-cap: 0 */
       var reg = Registry();
-      expect(typeof reg.get).toEqual("function");
-      expect(typeof reg.set).toEqual("function");
-      expect(typeof reg.tasks).toEqual("function");
-      done();
+      assert.deepStrictEqual(typeof reg.get, "function");
+      assert.deepStrictEqual(typeof reg.set, "function");
+      assert.deepStrictEqual(typeof reg.tasks, "function");
     });
   });
 
   describe("init", function () {
-    it("is a noop", function (done) {
+    it("is a noop", function () {
       var reg = new Registry();
-      expect(typeof reg.init).toEqual("function");
-      done();
+      assert.deepStrictEqual(typeof reg.init, "function");
     });
   });
 
   describe("get", function () {
-    it("returns a task from the registry", function (done) {
+    it("returns a task from the registry", function () {
       var reg = new Registry();
       reg._tasks.test = noop;
-      expect(reg.get("test")).toEqual(noop);
-      done();
+      assert.deepStrictEqual(reg.get("test"), noop);
     });
   });
 
   describe("set", function () {
-    it("registers a task", function (done) {
+    it("registers a task", function () {
       var reg = new Registry();
       reg.set("test", noop);
-      expect(reg._tasks.test).toEqual(noop);
-      done();
+      assert.deepStrictEqual(reg._tasks.test, noop);
     });
 
-    it("returns the task (useful for inheriting)", function (done) {
+    it("returns the task (useful for inheriting)", function () {
       var reg = new Registry();
       var task = reg.set("test", noop);
-      expect(task).toEqual(noop);
-      done();
+      assert.deepStrictEqual(task, noop);
     });
   });
 
   describe("tasks", function () {
-    it("returns an object of task name->functions", function (done) {
+    it("returns an object of task name->functions", function () {
       var reg = new Registry();
       reg.set("test1", noop);
       reg.set("test2", noop);
-      expect(reg.tasks()).toEqual({ test1: noop, test2: noop });
-      done();
+      assert.deepStrictEqual(reg.tasks(), { test1: noop, test2: noop });
     });
   });
 });
